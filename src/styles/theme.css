@@ -1069,47 +1069,27 @@ body {
   pointer-events: auto !important;
   border-radius: 9999px !important; /* Perfect Pill */
   background-color: #FFFFFF !important;
-  border: 1px solid #E5E7EB !important;
-  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04) !important;
-  padding: 10px 22px 10px 14px !important;
+  border: 1px solid #ECEFF2 !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04) !important;
+  padding: 10px 20px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
   width: auto !important;
-  max-width: 380px !important;
+  max-width: 400px !important;
   margin-top: 18px !important;
   margin-right: 20px !important;
   animation: swal2-toast-in 0.25s ease-out !important;
 }
 
-.swal2-toast .swal2-title {
-  font-size: 0.88rem !important;
-  font-weight: 700 !important;
-  color: #18181B !important;
+.swal2-toast .swal2-html-container {
   margin: 0 !important;
   padding: 0 !important;
-  white-space: nowrap !important;
+  font-family: var(--font-family) !important;
 }
 
+/* Hide SweetAlert2 default deformed icon on toasts */
 .swal2-toast .swal2-icon {
-  width: 26px !important;
-  height: 26px !important;
-  min-width: 26px !important;
-  margin: 0 !important;
-  border-width: 2px !important;
-  border-radius: 50% !important;
-}
-
-.swal2-toast .swal2-icon.swal2-success {
-  border-color: #16A34A !important;
-  background-color: var(--pastel-mint-bg) !important;
-  color: #16A34A !important;
-}
-
-.swal2-toast .swal2-icon.swal2-info {
-  border-color: #2563EB !important;
-  background-color: var(--pastel-blue-bg) !important;
-  color: #2563EB !important;
+  display: none !important;
 }
 
 @keyframes swal2-toast-in {
@@ -1122,5 +1102,6 @@ body {
     transform: translateY(0) scale(1);
   }
 }
+
 
 

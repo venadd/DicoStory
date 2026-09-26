@@ -50,16 +50,37 @@ export default function App() {
       toast: true,
       position: "top-end",
       showConfirmButton: false,
-      timer: 1600,
+      timer: 1800,
       timerProgressBar: false,
       backdrop: false,
     });
 
+    const checkSvg = `
+      <div style="width: 24px; height: 24px; border-radius: 50%; background-color: #E0F4EC; border: 2px solid #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+    `;
+
+    const infoSvg = `
+      <div style="width: 24px; height: 24px; border-radius: 50%; background-color: #F4F5F7; border: 2px solid #64748B; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+    `;
+
     Toast.fire({
-      icon: saved ? "success" : "info",
-      title: saved
-        ? "Cerita disimpan ke Bookmark!"
-        : "Cerita dihapus dari Bookmark",
+      html: `
+        <div style="display: flex; align-items: center; gap: 10px;">
+          ${saved ? checkSvg : infoSvg}
+          <span style="font-weight: 700; font-size: 0.88rem; color: #18181B; white-space: nowrap;">
+            ${saved ? "Cerita disimpan ke Bookmark!" : "Cerita dihapus dari Bookmark"}
+          </span>
+        </div>
+      `,
     });
   };
 
