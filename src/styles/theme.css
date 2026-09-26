@@ -906,12 +906,25 @@ body {
   z-index: 10000000 !important;
 }
 
-.swal2-container.swal2-backdrop-show {
+/* Modal Backdrop ONLY applies to full-screen modals, NEVER to toasts */
+.swal2-container:not(.swal2-top-end):not(.swal2-top-start):not(.swal2-bottom-end):not(.swal2-bottom-start):not(.swal2-top):not(.swal2-bottom).swal2-backdrop-show {
   background: rgba(15, 23, 42, 0.45) !important;
   backdrop-filter: blur(8px) !important;
 }
 
-.swal2-popup {
+/* Strictly ensure toast containers have NO dark backdrop or blur */
+.swal2-container.swal2-top-end,
+.swal2-container.swal2-top-start,
+.swal2-container.swal2-bottom-end,
+.swal2-container.swal2-bottom-start,
+.swal2-container.swal2-top,
+.swal2-container.swal2-bottom {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  pointer-events: none !important;
+}
+
+.swal2-popup:not(.swal2-toast) {
   font-family: var(--font-family) !important;
   border-radius: 26px !important;
   padding: 34px 30px !important;
@@ -923,7 +936,7 @@ body {
 }
 
 /* Typography in Popups */
-.swal2-title {
+.swal2-popup:not(.swal2-toast) .swal2-title {
   font-size: 1.35rem !important;
   font-weight: 800 !important;
   color: #0F172A !important;
@@ -932,7 +945,7 @@ body {
   letter-spacing: -0.02em !important;
 }
 
-.swal2-html-container {
+.swal2-popup:not(.swal2-toast) .swal2-html-container {
   font-size: 0.92rem !important;
   color: #475569 !important;
   line-height: 1.55 !important;
@@ -940,8 +953,8 @@ body {
   padding: 0 !important;
 }
 
-/* Icons Customized with Flat Pastel Backing */
-.swal2-icon {
+/* Icons Customized with Flat Pastel Backing for standard modal */
+.swal2-popup:not(.swal2-toast) .swal2-icon {
   margin: 8px auto 20px auto !important;
   border-width: 2.5px !important;
   width: 68px !important;
@@ -1049,14 +1062,24 @@ body {
   border-color: #18181B !important;
 }
 
-/* SweetAlert2 Toast (Bookmark feedback etc) */
+/* ============================================================
+   SWEETALERT2 TOAST PILL (Bookmark Feedback - Sleek & Floating)
+   ============================================================ */
 .swal2-toast {
-  border-radius: 16px !important;
+  pointer-events: auto !important;
+  border-radius: 9999px !important; /* Perfect Pill */
   background-color: #FFFFFF !important;
   border: 1px solid #E5E7EB !important;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1) !important;
-  padding: 12px 18px !important;
-  font-family: var(--font-family) !important;
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04) !important;
+  padding: 10px 22px 10px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: auto !important;
+  max-width: 380px !important;
+  margin-top: 18px !important;
+  margin-right: 20px !important;
+  animation: swal2-toast-in 0.25s ease-out !important;
 }
 
 .swal2-toast .swal2-title {
@@ -1064,11 +1087,40 @@ body {
   font-weight: 700 !important;
   color: #18181B !important;
   margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
 }
 
 .swal2-toast .swal2-icon {
-  margin: 0 10px 0 0 !important;
-  width: 24px !important;
-  height: 24px !important;
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  margin: 0 !important;
+  border-width: 2px !important;
+  border-radius: 50% !important;
 }
+
+.swal2-toast .swal2-icon.swal2-success {
+  border-color: #16A34A !important;
+  background-color: var(--pastel-mint-bg) !important;
+  color: #16A34A !important;
+}
+
+.swal2-toast .swal2-icon.swal2-info {
+  border-color: #2563EB !important;
+  background-color: var(--pastel-blue-bg) !important;
+  color: #2563EB !important;
+}
+
+@keyframes swal2-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 

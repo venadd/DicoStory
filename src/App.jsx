@@ -52,6 +52,7 @@ export default function App() {
       showConfirmButton: false,
       timer: 1600,
       timerProgressBar: false,
+      backdrop: false,
     });
 
     Toast.fire({
