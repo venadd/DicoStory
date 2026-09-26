@@ -963,54 +963,126 @@ body {
 
 /* Info Icon */
 .swal2-icon.swal2-info {
-  border-color: #2563EB !important;
-  color: #2563EB !important;
+  border: 2.5px solid #2563EB !important;
   background-color: var(--pastel-blue-bg) !important;
+  color: #2563EB !important;
+  border-radius: 50% !important;
+  width: 72px !important;
+  height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.swal2-icon.swal2-info .swal2-icon-content {
+  font-family: var(--font-family) !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  color: #2563EB !important;
 }
 
-/* Success Icon */
+/* Success Icon (Flawless Single-ring with crisp checkmark) */
 .swal2-icon.swal2-success {
-  border-color: #16A34A !important;
-  color: #16A34A !important;
+  border: 2.5px solid #16A34A !important;
   background-color: var(--pastel-mint-bg) !important;
+  border-radius: 50% !important;
+  width: 72px !important;
+  height: 72px !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
 }
+
+/* Hide SweetAlert2 messy multi-element spans and double rings */
+.swal2-icon.swal2-success .swal2-success-ring,
+.swal2-icon.swal2-success .swal2-success-fix,
+.swal2-icon.swal2-success [class^="swal2-success-circular-line"],
 .swal2-icon.swal2-success .swal2-success-line-tip,
 .swal2-icon.swal2-success .swal2-success-line-long {
-  background-color: #16A34A !important;
+  display: none !important;
 }
-.swal2-icon.swal2-success .swal2-success-ring {
-  border-color: rgba(22, 163, 74, 0.25) !important;
-}
-.swal2-icon.swal2-success [class^="swal2-success-circular-line"] {
-  background-color: transparent !important;
-}
-.swal2-icon.swal2-success .swal2-success-fix {
-  background-color: transparent !important;
+
+/* Perfectly centered, crisp checkmark */
+.swal2-icon.swal2-success::after {
+  content: "" !important;
+  display: block !important;
+  width: 15px !important;
+  height: 27px !important;
+  border: solid #16A34A !important;
+  border-width: 0 3.5px 3.5px 0 !important;
+  transform: rotate(45deg) translate(-2px, -3px) !important;
+  border-radius: 2px !important;
 }
 
 /* Warning Icon */
 .swal2-icon.swal2-warning {
-  border-color: #D97706 !important;
+  border: 2.5px solid #D97706 !important;
   color: #D97706 !important;
   background-color: var(--pastel-yellow-bg) !important;
+  border-radius: 50% !important;
+  width: 72px !important;
+  height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.swal2-icon.swal2-warning .swal2-icon-content {
+  font-family: var(--font-family) !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  color: #D97706 !important;
 }
 
 /* Error Icon */
 .swal2-icon.swal2-error {
-  border-color: #DC2626 !important;
+  border: 2.5px solid #DC2626 !important;
   color: #DC2626 !important;
   background-color: var(--pastel-peach-bg) !important;
+  border-radius: 50% !important;
+  width: 72px !important;
+  height: 72px !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.swal2-icon.swal2-error .swal2-x-mark-line-left,
-.swal2-icon.swal2-error .swal2-x-mark-line-right {
+.swal2-icon.swal2-error [class^="swal2-x-mark"] {
+  display: none !important;
+}
+.swal2-icon.swal2-error::before,
+.swal2-icon.swal2-error::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 28px !important;
+  height: 3.5px !important;
   background-color: #DC2626 !important;
+  border-radius: 2px !important;
+}
+.swal2-icon.swal2-error::before {
+  transform: rotate(45deg) !important;
+}
+.swal2-icon.swal2-error::after {
+  transform: rotate(-45deg) !important;
 }
 
 /* Question Icon */
 .swal2-icon.swal2-question {
-  border-color: #18181B !important;
+  border: 2.5px solid #18181B !important;
   color: #18181B !important;
   background-color: #F4F5F7 !important;
+  border-radius: 50% !important;
+  width: 72px !important;
+  height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.swal2-icon.swal2-question .swal2-icon-content {
+  font-family: var(--font-family) !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #18181B !important;
 }
 
 /* Buttons Customized to DicoStory Pills */
