@@ -1,0 +1,31 @@
+body {
+  background-color: var(--background-color);
+}
+
+.main-content {
+  flex: 1;
+  padding: auto;;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  padding: var(--space-lg);
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.card {
+  background-color: var(--white);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding: var(--space-md);
+  }
+}

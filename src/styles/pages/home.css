@@ -1,0 +1,36 @@
+.home {
+  margin-bottom: var(--space-xl);
+}
+
+.home__title {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-lg);
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: var(--space-sm);
+}
+
+.home__content {
+  margin-top: var(--space-xl);
+}
+
+.home .map-container {
+
+  padding-top: 25px;
+}
+
+.home .map-title {
+  font-size: var(--font-xl);
+}
+
+.stories-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media screen and (min-width: 768px) {
+  .stories-list {
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  }
+}
