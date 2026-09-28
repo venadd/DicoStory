@@ -257,15 +257,7 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
         <ArrowLeft size={16} /> Kembali ke Beranda
       </button>
 
-      <div
-        style={{
-          backgroundColor: "#FFFFFF",
-          borderRadius: "24px",
-          border: "1px solid #ECEFF2",
-          padding: "32px",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-        }}
-      >
+      <div className="add-story-card-box">
         <div style={{ marginBottom: "26px" }}>
           <h2 style={{ fontSize: "1.45rem", fontWeight: 800, color: "#18181B" }}>
             Buat Cerita Baru
@@ -310,16 +302,17 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
                     color: "#FFFFFF",
                     border: "none",
                     borderRadius: "50%",
-                    width: "34px",
-                    height: "34px",
+                    width: "44px",
+                    height: "44px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     cursor: "pointer",
                   }}
                   title="Hapus foto"
+                  aria-label="Hapus foto"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
             ) : isCameraActive ? (
@@ -338,6 +331,7 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
                   style={{ width: "100%", height: "300px", objectFit: "cover" }}
                 />
                 <div
+                  className="upload-btn-row"
                   style={{
                     position: "absolute",
                     bottom: "16px",
@@ -346,6 +340,7 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
                     display: "flex",
                     justifyContent: "center",
                     gap: "12px",
+                    padding: "0 16px",
                   }}
                 >
                   <button
@@ -358,7 +353,7 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
                   <button
                     type="button"
                     className="btn-card-secondary"
-                    style={{ padding: "8px 16px" }}
+                    style={{ padding: "8px 16px", backgroundColor: "#FFFFFF" }}
                     onClick={stopCamera}
                   >
                     Batal
@@ -370,17 +365,17 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
                 style={{
                   border: "2px dashed #CBD5E1",
                   borderRadius: "18px",
-                  padding: "36px 20px",
+                  padding: "28px 16px",
                   textAlign: "center",
                   backgroundColor: "#FAFAFA",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "16px" }}>
+                <div className="upload-btn-row" style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "16px", flexWrap: "wrap" }}>
                   <button
                     type="button"
                     className="btn-card-secondary"
                     onClick={() => document.getElementById("filePickerInput").click()}
-                    style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
                   >
                     <Upload size={16} /> Pilih dari File
                   </button>
@@ -389,7 +384,7 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
                     type="button"
                     className="btn-black-search"
                     onClick={startCamera}
-                    style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
                   >
                     <Camera size={16} /> Buka Kamera
                   </button>
@@ -408,6 +403,7 @@ export default function AddStoryPage({ onBack, onSuccess, user }) {
             )}
             <canvas ref={canvasRef} style={{ display: "none" }} />
           </div>
+
 
           {/* Description Section */}
           <div className="form-group">

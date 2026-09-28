@@ -123,21 +123,46 @@ export default function App() {
   const getHeaderTitle = () => {
     switch (currentView) {
       case "feed":
-        return "MY STORIES";
+        return "My Stories";
       case "saved":
-        return "SAVED STORIES";
+        return "Saved Stories";
       case "map":
-        return "EXPLORE MAP";
+        return "Explore Map";
       case "add":
-        return "NEW STORY";
+        return "New Story";
       case "my-stories":
-        return "MY ARCHIVE";
+        return "My Archive";
       case "login":
-        return "SIGN IN";
+        return "Sign In";
       case "register":
-        return "SIGN UP";
+        return "Sign Up";
       default:
-        return "MY STORIES";
+        return "My Stories";
+    }
+  };
+
+  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleInstallPWA = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") {
+      setDeferredPrompt(null);
     }
   };
 
@@ -153,7 +178,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* 1. Left Minimalist Sidebar */}
+      {/* 1. Left Minimalist Sidebar / Mobile Drawer Sheet */}
       <Sidebar
         currentView={currentView}
         setView={(view) => {
@@ -165,7 +190,12 @@ export default function App() {
         user={user}
         savedCount={savedIds.length}
         onLogout={handleLogout}
+        isOpenMobile={isMobileDrawerOpen}
+        onCloseMobile={() => setIsMobileDrawerOpen(false)}
+        canInstallPWA={!!deferredPrompt}
+        onInstallPWA={handleInstallPWA}
       />
+
 
       {/* 2. Main Wrapper with Header and Content */}
       <div className="main-wrapper">
@@ -175,7 +205,9 @@ export default function App() {
           setSearchQuery={setSearchQuery}
           user={user}
           setView={setCurrentView}
+          onOpenMobileMenu={() => setIsMobileDrawerOpen(true)}
         />
+
 
         {/* View Router */}
         {currentView === "feed" && (

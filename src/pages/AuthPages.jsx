@@ -47,17 +47,7 @@ export function LoginPage({ onLoginSuccess, onNavigateRegister, onBack }) {
         minHeight: "80vh",
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "440px",
-          backgroundColor: "#FFFFFF",
-          borderRadius: "24px",
-          border: "1px solid #ECEFF2",
-          padding: "36px 32px",
-          boxShadow: "0 4px 14px rgba(0,0,0,0.04)",
-        }}
-      >
+      <div className="auth-card-box">
         <button
           className="tab-btn"
           onClick={onBack}
@@ -224,17 +214,7 @@ export function RegisterPage({ onRegisterSuccess, onNavigateLogin, onBack }) {
         minHeight: "80vh",
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "440px",
-          backgroundColor: "#FFFFFF",
-          borderRadius: "24px",
-          border: "1px solid #ECEFF2",
-          padding: "36px 32px",
-          boxShadow: "0 4px 14px rgba(0,0,0,0.04)",
-        }}
-      >
+      <div className="auth-card-box">
         <button
           className="tab-btn"
           onClick={onBack}

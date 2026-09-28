@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, User, LogIn, Bell } from "lucide-react";
+import { Search, LogIn, Menu } from "lucide-react";
 
 export default function Header({
   title = "MY STORIES",
@@ -7,18 +7,30 @@ export default function Header({
   setSearchQuery,
   user,
   setView,
+  onOpenMobileMenu,
 }) {
   return (
     <header className="top-header">
-      <h1 className="page-main-title">{title}</h1>
+      <div className="header-left">
+        <button
+          className="mobile-hamburger-btn"
+          onClick={onOpenMobileMenu}
+          aria-label="Buka Menu Navigasi"
+          title="Buka Menu"
+        >
+          <Menu size={22} />
+        </button>
+        <h1 className="page-main-title">{title}</h1>
+      </div>
 
       <div className="header-search-bar">
-        <Search size={17} color="#94A3B8" />
+        <Search size={17} color="#94A3B8" className="search-icon" />
         <input
           type="text"
           placeholder="Cari cerita atau penulis..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          aria-label="Cari cerita atau penulis"
         />
       </div>
 
@@ -28,6 +40,8 @@ export default function Header({
             className="user-profile-badge"
             onClick={() => setView("my-stories")}
             title="Lihat Cerita Saya"
+            role="button"
+            tabIndex={0}
           >
             <div className="user-avatar-circle">
               {user.name ? user.name.charAt(0).toUpperCase() : "U"}
@@ -50,3 +64,4 @@ export default function Header({
     </header>
   );
 }
+

@@ -95,12 +95,17 @@ export default function StoryDetailModal({
         role="dialog"
         aria-modal="true"
       >
-        <button className="modal-close-btn" onClick={onClose} title="Tutup">
+        <button
+          className="modal-close-btn"
+          onClick={onClose}
+          title="Tutup"
+          aria-label="Tutup Detail Cerita"
+        >
           <X size={20} />
         </button>
 
         {/* Header */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingRight: "44px", marginBottom: "20px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingRight: "48px", marginBottom: "20px", flexWrap: "wrap", gap: "12px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
             <div
               style={{
@@ -120,7 +125,7 @@ export default function StoryDetailModal({
               {story.name ? story.name.charAt(0).toUpperCase() : "A"}
             </div>
             <div>
-              <h2 style={{ fontSize: "1.35rem", fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
+              <h2 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
                 {story.name || "Anonim"}
               </h2>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#64748B", fontSize: "0.82rem", marginTop: "4px" }}>
@@ -137,7 +142,7 @@ export default function StoryDetailModal({
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                padding: "8px 14px",
+                padding: "8px 16px",
                 borderRadius: "9999px",
                 border: "1px solid #E2E8F0",
                 backgroundColor: isSaved ? "#18181B" : "#FFFFFF",
@@ -145,6 +150,7 @@ export default function StoryDetailModal({
                 fontSize: "0.82rem",
                 fontWeight: 700,
                 cursor: "pointer",
+                minHeight: "44px",
                 transition: "all 0.15s ease",
               }}
               title={isSaved ? "Hapus dari Simpanan" : "Simpan Cerita"}
@@ -154,6 +160,7 @@ export default function StoryDetailModal({
             </button>
           )}
         </div>
+
 
         {/* Photo */}
         {story.photoUrl && (

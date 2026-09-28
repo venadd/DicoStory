@@ -154,26 +154,9 @@ export default function MapExplorePage({
   };
 
   return (
-    <div
-      className="content-body"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-        height: "calc(100vh - 90px)",
-        paddingBottom: "24px",
-      }}
-    >
+    <div className="content-body map-explore-page-body">
       {/* Top Bar Navigation */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "12px",
-        }}
-      >
+      <div className="map-top-bar">
         <button
           className="tab-btn"
           onClick={onBack}
@@ -204,31 +187,9 @@ export default function MapExplorePage({
       </div>
 
       {/* Main Map View + Sidebar Container */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          gap: "18px",
-          minHeight: 0,
-          position: "relative",
-        }}
-      >
-        {/* Left Mini Story Drawer */}
-        <div
-          style={{
-            width: "320px",
-            backgroundColor: "#FFFFFF",
-            borderRadius: "20px",
-            border: "1px solid #ECEFF2",
-            padding: "16px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "12px",
-            overflowY: "auto",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.03)",
-            flexShrink: 0,
-          }}
-        >
+      <div className="map-explore-wrapper">
+        {/* Left Mini Story List */}
+        <div className="map-list-sidebar">
           <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "4px 8px" }}>
             <Compass size={18} color="#18181B" />
             <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#18181B" }}>
@@ -277,10 +238,11 @@ export default function MapExplorePage({
                   <button
                     className="btn-card-secondary"
                     style={{
-                      padding: "4px 10px",
+                      padding: "6px 12px",
                       fontSize: "0.74rem",
                       borderRadius: "9999px",
                       width: "100%",
+                      minHeight: "36px",
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -296,17 +258,7 @@ export default function MapExplorePage({
         </div>
 
         {/* Map Container */}
-        <div
-          style={{
-            flex: 1,
-            borderRadius: "22px",
-            border: "1px solid #ECEFF2",
-            overflow: "hidden",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-            position: "relative",
-            isolation: "isolate",
-          }}
-        >
+        <div className="map-canvas-box">
           <div
             ref={mapContainerRef}
             style={{ width: "100%", height: "100%" }}
@@ -316,3 +268,4 @@ export default function MapExplorePage({
     </div>
   );
 }
+

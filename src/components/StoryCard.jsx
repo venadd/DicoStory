@@ -53,6 +53,7 @@ export default function StoryCard({
         <button
           className="card-bookmark-btn"
           title={isSaved ? "Hapus dari Simpanan" : "Simpan Cerita"}
+          aria-label={isSaved ? "Hapus dari Simpanan" : "Simpan Cerita"}
           onClick={(e) => {
             e.stopPropagation();
             if (onToggleSave) {
@@ -62,8 +63,10 @@ export default function StoryCard({
           style={{
             backgroundColor: isSaved ? "rgba(24, 24, 27, 0.1)" : "transparent",
             borderRadius: "50%",
-            width: "32px",
-            height: "32px",
+            width: "44px",
+            height: "44px",
+            minWidth: "44px",
+            minHeight: "44px",
           }}
         >
           <Bookmark
